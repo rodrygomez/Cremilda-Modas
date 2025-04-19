@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cremilda Modas</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fffafc;
+      color: #333;
+    }
+
+    header {
+      background-color: #f8d8e3;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #b03e6e;
+    }
+
+    nav {
+      background-color: #fff0f5;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #b03e6e;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .catalogo img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 10px;
+      margin: 10px;
+    }
+
+    .catalogo {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+
+    button {
+      background-color: #b03e6e;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #f8d8e3;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 600px) {
+      .catalogo {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    /* Botão flutuante do WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+
+    .whatsapp-float img {
+      width: 60px;
+      height: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Cremilda Modas</h1>
+    <p>Moda feminina com elegância e estilo</p>
+  </header>
+
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#catalogo">Catálogo</a>
+    <a href="#pedido">Pedido</a>
+    <a href="#contato">Contato</a>
+    <a href="#localizacao">Localização</a>
+  </nav>
+
+  <section id="sobre">
+    <h2>Sobre a loja</h2>
+    <p>A Cremilda Modas nasceu da paixão por roupas femininas que valorizam o estilo e a personalidade de cada mulher. Oferecemos peças selecionadas com carinho, buscando sempre qualidade, conforto e beleza. Venha conhecer nossas novidades!</p>
+  </section>
+
+  <section id="catalogo">
+    <h2>Catálogo de Produtos</h2>
+    <div class="catalogo">
+      <img src="https://via.placeholder.com/250x350?text=Vestido+1" alt="Vestido 1">
+      <img src="https://via.placeholder.com/250x350?text=Vestido+2" alt="Vestido 2">
+      <img src="https://via.placeholder.com/250x350?text=Conjunto+1" alt="Conjunto 1">
+      <img src="https://via.placeholder.com/250x350?text=Blusa+1" alt="Blusa 1">
+    </div>
+  </section>
+
+  <section id="pedido">
+    <h2>Faça seu Pedido</h2>
+    <form id="formPedido" onsubmit="enviarPedido(); return false;">
+      <input type="text" id="nome" placeholder="Seu nome" required>
+      <input type="text" id="produto" placeholder="Produto desejado" required>
+      <input type="text" id="tamanho" placeholder="Tamanho" required>
+      <textarea id="mensagem" rows="4" placeholder="Mensagem adicional (opcional)"></textarea>
+      <button type="submit">Enviar pelo WhatsApp</button>
+    </form>
+  </section>
+
+  <section id="contato">
+    <h2>Fale com a gente</h2>
+    <p style="text-align:center;">Instagram: <a href="https://www.instagram.com/cremildamodas" target="_blank">@cremildamodas</a></p>
+    <p style="text-align:center;">WhatsApp: <a href="https://wa.me/5581983310034" target="_blank">(81) 98331-0034</a></p>
+  </section>
+
+  <section id="localizacao">
+    <h2>Localização</h2>
+    <p style="text-align:center;">Estamos localizados em [Sua Cidade/Estado].</p>
+    <div style="text-align:center;">
+      <iframe src="https://www.google.com/maps/embed?..." width="90%" height="300" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Cremilda Modas. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Botão Flutuante do WhatsApp -->
+  <div class="whatsapp-float">
+    <a href="https://wa.me/5581983310034" target="_blank">
+      <img src="https://img.icons8.com/color/96/whatsapp.png" alt="WhatsApp">
+    </a>
+  </div>
+
+  <script>
+    function enviarPedido() {
+      const nome = document.getElementById('nome').value;
+      const produto = document.getElementById('produto').value;
+      const tamanho = document.getElementById('tamanho').value;
+      const mensagem = document.getElementById('mensagem').value;
+
+      const texto = `Olá! Me chamo ${nome}. Gostaria de pedir o produto: ${produto}, tamanho: ${tamanho}. ${mensagem ? '\nMensagem: ' + mensagem : ''}`;
+      const url = `https://wa.me/5581983310034?text=${encodeURIComponent(texto)}`;
+
+      window.open(url, '_blank');
+    }
+  </script>
+
+</body>
+</html>
